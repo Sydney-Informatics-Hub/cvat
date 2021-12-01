@@ -584,7 +584,7 @@ export enum Workspace {
     STANDARD3D = 'Standard 3D',
     STANDARD = 'Standard',
     ATTRIBUTE_ANNOTATION = 'Attribute annotation',
-    WEED_AI_ANNOTATION = 'Weed AI annotation',
+    WEED_AI_WORKSPACE = 'Weed AI',
     TAG_ANNOTATION = 'Tag annotation',
     REVIEW_WORKSPACE = 'Review',
 }
