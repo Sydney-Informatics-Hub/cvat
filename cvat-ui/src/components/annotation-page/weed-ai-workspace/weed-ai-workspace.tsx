@@ -11,7 +11,7 @@ import ControlsSideBarContainer from 'containers/annotation-page/weed-ai-workspa
 import PropagateConfirmContainer from 'containers/annotation-page/standard-workspace/propagate-confirm';
 import CanvasContextMenuContainer from 'containers/annotation-page/canvas/canvas-context-menu';
 import ObjectsListContainer from 'containers/annotation-page/standard-workspace/objects-side-bar/objects-list';
-import ObjectSideBarComponent from 'components/annotation-page/standard-workspace/objects-side-bar/objects-side-bar';
+import ObjectSideBarComponent from 'components/annotation-page/weed-ai-workspace/objects-side-bar/objects-side-bar';
 import CanvasPointContextMenuComponent from 'components/annotation-page/canvas/canvas-point-context-menu';
 import IssueAggregatorComponent from 'components/annotation-page/review/issues-aggregator';
 

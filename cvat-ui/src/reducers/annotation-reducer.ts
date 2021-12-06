@@ -110,6 +110,7 @@ const defaultState: AnnotationState = {
     colors: [],
     sidebarCollapsed: false,
     appearanceCollapsed: false,
+    userHelpCollapsed: false,
     filtersPanelVisible: false,
     requestReviewDialogVisible: false,
     submitReviewDialogVisible: false,
@@ -408,6 +409,12 @@ export default (state = defaultState, action: AnyAction): AnnotationState => {
             return {
                 ...state,
                 appearanceCollapsed: !state.appearanceCollapsed,
+            };
+        }
+        case AnnotationActionTypes.COLLAPSE_USER_HELP: {
+            return {
+                ...state,
+                userHelpCollapsed: !state.userHelpCollapsed,
             };
         }
         case AnnotationActionTypes.COLLAPSE_OBJECT_ITEMS: {
