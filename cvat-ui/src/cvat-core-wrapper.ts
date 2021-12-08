@@ -5,7 +5,7 @@
 import _cvat from 'cvat-core/src/api';
 
 const cvat: any = _cvat;
-const prefix: string = '/annotation';
+const prefix: string = '/cvat-annotation';
 
 cvat.config.prefix = prefix;
 cvat.config.backendAPI = `${prefix}/api/v1`;
