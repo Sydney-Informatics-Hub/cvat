@@ -10,12 +10,15 @@ import Icon from '@ant-design/icons';
 
 import { EmptyTasksIcon } from 'icons';
 
+import getCore from 'cvat-core-wrapper';
+
 interface Props {
     notFound?: boolean;
 }
 
 export default function EmptyListComponent(props: Props): JSX.Element {
     const { notFound } = props;
+    const core = getCore();
     return (
         <div className='cvat-empty-projects-list'>
             <Row justify='center' align='middle'>
@@ -43,7 +46,7 @@ export default function EmptyListComponent(props: Props): JSX.Element {
                     </Row>
                     <Row justify='center' align='middle'>
                         <Col>
-                            <Link to='/annotation/projects/create'>create a new one</Link>
+                            <Link to={`${core.config.prefix}/projects/create`}>create a new one</Link>
                         </Col>
                     </Row>
                 </>

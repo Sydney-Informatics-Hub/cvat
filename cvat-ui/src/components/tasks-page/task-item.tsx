@@ -18,6 +18,8 @@ import { ActiveInference } from 'reducers/interfaces';
 import { MenuIcon } from 'icons';
 import AutomaticAnnotationProgress from './automatic-annotation-progress';
 
+import getCore from 'cvat-core-wrapper';
+
 export interface TaskItemProps {
     taskInstance: any;
     previewImage: string;
@@ -138,6 +140,7 @@ class TaskItemComponent extends React.PureComponent<TaskItemProps & RouteCompone
     private renderNavigation(): JSX.Element {
         const { taskInstance, history } = this.props;
         const { id } = taskInstance;
+        const core = getCore();
 
         return (
             <Col span={4}>
@@ -148,10 +151,10 @@ class TaskItemComponent extends React.PureComponent<TaskItemProps & RouteCompone
                             type='primary'
                             size='large'
                             ghost
-                            href={`/tasks/${id}`}
+                            href={`${core.config.prefix}/tasks/${id}`}
                             onClick={(e: React.MouseEvent): void => {
                                 e.preventDefault();
-                                history.push(`/tasks/${id}`);
+                                history.push(`${core.config.prefix}/tasks/${id}`);
                             }}
                         >
                             Open

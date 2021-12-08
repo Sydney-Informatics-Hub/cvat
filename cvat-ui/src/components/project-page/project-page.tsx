@@ -24,6 +24,7 @@ import ModelRunnerDialog from 'components/model-runner-modal/model-runner-dialog
 import { useDidUpdateEffect } from 'utils/hooks';
 import DetailsComponent from './details';
 import ProjectTopBar from './top-bar';
+import getCore from 'cvat-core-wrapper';
 
 interface ParamType {
     id: string;
@@ -45,6 +46,7 @@ export default function ProjectPageComponent(): JSX.Element {
 
     const [project] = projects.filter((_project) => _project.id === id);
     const projectSubsets: Array<string> = [];
+    const core = getCore();
     for (const task of tasks) {
         if (!projectSubsets.includes(task.instance.subset)) projectSubsets.push(task.instance.subset);
     }
@@ -77,13 +79,13 @@ export default function ProjectPageComponent(): JSX.Element {
             }
         }
         history.push({
-            pathname: `/annotation/projects/${id}`,
+            pathname: `${core.config.prefix}/projects/${id}`,
             search: `?${searchParams.toString()}`,
         });
     }, [tasksGettingQuery, id]);
 
     if (deleteActivity) {
-        history.push('/annotation/projects');
+        history.push(`${core.config.prefix}/projects`);
     }
 
     if (projectsFetching) {
@@ -129,7 +131,7 @@ export default function ProjectPageComponent(): JSX.Element {
                             type='primary'
                             icon={<PlusOutlined />}
                             id='cvat-create-task-button'
-                            onClick={() => history.push(`/annotation/tasks/create?projectId=${id}`)}
+                            onClick={() => history.push(`${core.config.prefix}/tasks/create?projectId=${id}`)}
                         >
                             Create new task
                         </Button>

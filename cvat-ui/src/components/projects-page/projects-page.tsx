@@ -14,6 +14,7 @@ import FeedbackComponent from 'components/feedback/feedback';
 import EmptyListComponent from './empty-list';
 import TopBarComponent from './top-bar';
 import ProjectListComponent from './project-list';
+import getCore from 'cvat-core-wrapper';
 
 export default function ProjectsPageComponent(): JSX.Element {
     const { search } = useLocation();
@@ -24,6 +25,8 @@ export default function ProjectsPageComponent(): JSX.Element {
     const gettingQuery = useSelector((state: CombinedState) => state.projects.gettingQuery);
 
     const anySearchQuery = !!Array.from(new URLSearchParams(search).keys()).filter((value) => value !== 'page').length;
+
+    const core = getCore();
 
     useEffect(() => {
         const searchParams: Partial<ProjectsQuery> = {};
@@ -41,7 +44,7 @@ export default function ProjectsPageComponent(): JSX.Element {
             }
         }
         history.push({
-            pathname: '/annotation/projects',
+            pathname: `${core.config.prefix}/projects`,
             search: `?${searchParams.toString()}`,
         });
     }, [gettingQuery]);

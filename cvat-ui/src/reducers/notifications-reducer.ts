@@ -366,7 +366,7 @@ export default function (state = defaultState, action: AnyAction): Notifications
                         loading: {
                             message:
                                 'Could not upload annotation for the ' +
-                                `<a href="/tasks/${taskID}" target="_blank">task ${taskID}</a>`,
+                                `<a href=${`${core.config.prefix}/tasks/${taskID}`} target="_blank">task ${taskID}</a>`,
                             reason: action.payload.error.toString(),
                             className: 'cvat-notification-notice-load-annotation-failed',
                         },
@@ -384,7 +384,7 @@ export default function (state = defaultState, action: AnyAction): Notifications
                         ...state.messages.tasks,
                         loadingDone:
                             'Annotations have been loaded to the ' +
-                            `<a href="/tasks/${taskID}" target="_blank">task ${taskID}</a>`,
+                            `<a href=${`${core.config.prefix}/tasks/${taskID}`} target="_blank">task ${taskID}</a>`,
                     },
                 },
             };
@@ -398,7 +398,7 @@ export default function (state = defaultState, action: AnyAction): Notifications
                     tasks: {
                         ...state.errors.tasks,
                         updating: {
-                            message: `Could not update <a href="/tasks/${taskID}" target="_blank">task ${taskID}</a>`,
+                            message: `Could not update <a href=${`${core.config.prefix}/tasks/${taskID}`} target="_blank">task ${taskID}</a>`,
                             reason: action.payload.error.toString(),
                             className: 'cvat-notification-notice-update-task-failed',
                         },
@@ -417,7 +417,7 @@ export default function (state = defaultState, action: AnyAction): Notifications
                         deleting: {
                             message:
                                 'Could not delete the ' +
-                                `<a href="/tasks/${taskID}" target="_blank">task ${taskID}</a>`,
+                                `<a href=${`${core.config.prefix}/tasks/${taskID}`} target="_blank">task ${taskID}</a>`,
                             reason: action.payload.error.toString(),
                             className: 'cvat-notification-notice-delete-task-failed',
                         },
@@ -479,7 +479,7 @@ export default function (state = defaultState, action: AnyAction): Notifications
                     ...state.messages,
                     tasks: {
                         ...state.messages.tasks,
-                        importingDone: `Task has been imported succesfully <a href="/tasks/${taskID}">Open task</a>`,
+                        importingDone: `Task has been imported succesfully <a href=${`${core.config.prefix}/tasks/${taskID}`}>Open task</a>`,
                     },
                 },
             };
@@ -609,7 +609,7 @@ export default function (state = defaultState, action: AnyAction): Notifications
                             ...state.messages.models,
                             inferenceDone:
                                 'Automatic annotation finished for the ' +
-                                `<a href="/tasks/${taskID}" target="_blank">task ${taskID}</a>`,
+                                `<a href=${`${core.config.prefix}/tasks/${taskID}`} target="_blank">task ${taskID}</a>`,
                         },
                     },
                 };
@@ -645,7 +645,7 @@ export default function (state = defaultState, action: AnyAction): Notifications
                         inferenceStatusFetching: {
                             message:
                                 'Fetching inference status for the ' +
-                                `<a href="/tasks/${taskID}" target="_blank">task ${taskID}</a>`,
+                                `<a href=${`${core.config.prefix}/tasks/${taskID}`} target="_blank">task ${taskID}</a>`,
                             reason: action.payload.error.toString(),
                         },
                     },
@@ -678,7 +678,7 @@ export default function (state = defaultState, action: AnyAction): Notifications
                         starting: {
                             message:
                                 'Could not infer model for the ' +
-                                `<a href="/tasks/${taskID}" target="_blank">task ${taskID}</a>`,
+                                `<a href=${`${core.config.prefix}/tasks/${taskID}`} target="_blank">task ${taskID}</a>`,
                             reason: action.payload.error.toString(),
                         },
                     },
@@ -696,7 +696,7 @@ export default function (state = defaultState, action: AnyAction): Notifications
                         canceling: {
                             message:
                                 'Could not cancel model inference for the ' +
-                                `<a href="/tasks/${taskID}" target="_blank">task ${taskID}</a>`,
+                                `<a href=${`${core.config.prefix}/tasks/${taskID}`} target="_blank">task ${taskID}</a>`,
                             reason: action.payload.error.toString(),
                         },
                     },
@@ -904,7 +904,7 @@ export default function (state = defaultState, action: AnyAction): Notifications
                         uploadAnnotations: {
                             message:
                                 'Could not upload annotations for the ' +
-                                `<a href="/tasks/${taskID}/jobs/${jobID}" target="_blank">job ${taskID}</a>`,
+                                `<a href=${`${core.config.prefix}/tasks/${taskID}/jobs/${jobID}`} target="_blank">job ${taskID}</a>`,
                             reason: error.toString(),
                             className: 'cvat-notification-notice-upload-annotations-fail',
                         },

@@ -17,6 +17,8 @@ import copy from 'copy-to-clipboard';
 import CVATTooltip from 'components/common/cvat-tooltip';
 import UserSelector, { User } from './user-selector';
 
+import getCore from 'cvat-core-wrapper';
+
 interface Props {
     taskInstance: any;
     onJobUpdate(jobInstance: any): void;
@@ -96,6 +98,7 @@ function JobListComponent(props: Props & RouteComponentProps): JSX.Element {
     } = props;
 
     const { jobs, id: taskId } = taskInstance;
+    const core = getCore();
 
     function sorter(path: string) {
         return (obj1: any, obj2: any): number => {
@@ -147,9 +150,9 @@ function JobListComponent(props: Props & RouteComponentProps): JSX.Element {
                         type='link'
                         onClick={(e: React.MouseEvent): void => {
                             e.preventDefault();
-                            push(`/tasks/${taskId}/jobs/${id}`);
+                            push(`${core.config.prefix}/tasks/${taskId}/jobs/${id}`);
                         }}
-                        href={`/tasks/${taskId}/jobs/${id}`}
+                        href={`${core.config.prefix}/tasks/${taskId}/jobs/${id}`}
                     >
                         {`Job #${id}`}
                     </Button>
@@ -288,7 +291,7 @@ function JobListComponent(props: Props & RouteComponentProps): JSX.Element {
                                 for (const job of taskInstance.jobs) {
                                     const baseURL = window.location.origin;
                                     serialized += `Job #${job.id}`.padEnd(`${latestJob.id}`.length + 6, ' ');
-                                    serialized += `: ${baseURL}/tasks/${taskInstance.id}/jobs/${job.id}`.padEnd(
+                                    serialized += `: ${baseURL}/${core.config.prefix}/tasks/${taskInstance.id}/jobs/${job.id}`.padEnd(
                                         `${latestJob.id}`.length + baseURL.length + 8,
                                         ' ',
                                     );

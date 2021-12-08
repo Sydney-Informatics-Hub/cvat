@@ -13,6 +13,7 @@ import { PlusOutlined } from '@ant-design/icons';
 import SearchField from 'components/search-field/search-field';
 import { CombinedState, ProjectsQuery } from 'reducers/interfaces';
 import { getProjectsAsync } from 'actions/projects-actions';
+import getCore from 'cvat-core-wrapper';
 
 export default function TopBarComponent(): JSX.Element {
     const history = useHistory();
@@ -24,6 +25,7 @@ export default function TopBarComponent(): JSX.Element {
         xl: 8,
         xxl: 8,
     };
+    const core = getCore();
 
     return (
         <Row justify='center' align='middle' className='cvat-projects-top-bar'>
@@ -41,7 +43,7 @@ export default function TopBarComponent(): JSX.Element {
                     id='cvat-create-project-button'
                     className='cvat-create-project-button'
                     type='primary'
-                    onClick={(): void => history.push('/annotation/projects/create')}
+                    onClick={(): void => history.push(`${core.config.prefix}/projects/create`)}
                     icon={<PlusOutlined />}
                 >
                     Create new project

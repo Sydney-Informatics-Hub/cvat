@@ -17,6 +17,7 @@ import { MoreOutlined } from '@ant-design/icons';
 import { CombinedState, Project } from 'reducers/interfaces';
 import { useCardHeightHOC } from 'utils/hooks';
 import ProjectActionsMenuComponent from './actions-menu';
+import getCore from 'cvat-core-wrapper';
 
 interface Props {
     projectInstance: Project;
@@ -41,8 +42,10 @@ export default function ProjectItemComponent(props: Props): JSX.Element {
     const deletes = useSelector((state: CombinedState) => state.projects.activities.deletes);
     const deleted = instance.id in deletes ? deletes[instance.id] : false;
 
+    const core = getCore();
+
     const onOpenProject = (): void => {
-        history.push(`/annotation/projects/${instance.id}`);
+        history.push(`${core.config.prefix}/projects/${instance.id}`);
     };
 
     const style: React.CSSProperties = { height };

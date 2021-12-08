@@ -15,6 +15,7 @@ import { MenuInfo } from 'rc-menu/lib/interface';
 
 import LoadSubmenu from 'components/actions-menu/load-submenu';
 import { DimensionType } from '../../../reducers/interfaces';
+import getCore from 'cvat-core-wrapper';
 
 interface Props {
     taskMode: string;
@@ -172,6 +173,7 @@ export default function AnnotationMenuComponent(props: Props): JSX.Element {
     }
 
     const is2d = jobInstance.task.dimension === DimensionType.DIM_2D;
+    const core = getCore();
 
     return (
         <Menu onClick={(params: MenuInfo) => onClickMenuWrapper(params)} className='cvat-annotation-menu' selectable={false}>
@@ -201,7 +203,7 @@ export default function AnnotationMenuComponent(props: Props): JSX.Element {
             <Menu.Item key={Actions.EXPORT_TASK_DATASET}>Export task dataset</Menu.Item>
             <Menu.Item key={Actions.REMOVE_ANNO}>Remove annotations</Menu.Item>
             <Menu.Item key={Actions.OPEN_TASK}>
-                <a href={`/tasks/${taskID}`} onClick={(e: React.MouseEvent) => e.preventDefault()}>
+                <a href={`${core.config.prefix}/tasks/${taskID}`} onClick={(e: React.MouseEvent) => e.preventDefault()}>
                     Open the task
                 </a>
             </Menu.Item>

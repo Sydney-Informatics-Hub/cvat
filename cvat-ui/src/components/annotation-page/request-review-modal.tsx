@@ -15,6 +15,7 @@ import UserSelector, { User } from 'components/task-page/user-selector';
 import { CombinedState, TaskStatus } from 'reducers/interfaces';
 import { switchRequestReviewDialog } from 'actions/annotation-actions';
 import { updateJobAsync } from 'actions/tasks-actions';
+import getCore from 'cvat-core-wrapper';
 
 export default function RequestReviewModal(): JSX.Element | null {
     const dispatch = useDispatch();
@@ -23,11 +24,12 @@ export default function RequestReviewModal(): JSX.Element | null {
     const job = useSelector((state: CombinedState): any => state.annotation.job.instance);
     const [reviewer, setReviewer] = useState<User | null>(job.reviewer ? job.reviewer : null);
     const close = (): AnyAction => dispatch(switchRequestReviewDialog(false));
+    const core = getCore();
     const submitAnnotations = (): void => {
         job.reviewer = reviewer;
         job.status = TaskStatus.REVIEW;
         dispatch(updateJobAsync(job));
-        history.push(`/tasks/${job.task.id}`);
+        history.push(`${core.config.prefix}/tasks/${job.task.id}`);
     };
 
     if (!isVisible) {

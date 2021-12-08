@@ -20,6 +20,7 @@ import { CombinedState } from 'reducers/interfaces';
 import LabelsEditor from 'components/labels-editor/labels-editor';
 import { createProjectAsync } from 'actions/projects-actions';
 import CreateProjectContext from './create-project.context';
+import getCore from 'cvat-core-wrapper';
 
 const { Option } = Select;
 
@@ -130,6 +131,7 @@ export default function CreateProjectContent(): JSX.Element {
     const advancedFormRef = useRef<FormInstance>(null);
     const dispatch = useDispatch();
     const history = useHistory();
+    const core = getCore();
 
     const newProjectId = useSelector((state: CombinedState) => state.projects.activities.creates.id);
 
@@ -137,7 +139,7 @@ export default function CreateProjectContent(): JSX.Element {
 
     useEffect(() => {
         if (Number.isInteger(newProjectId) && shouldShowNotification.current) {
-            const btn = <Button onClick={() => history.push(`/annotation/projects/${newProjectId}`)}>Open project</Button>;
+            const btn = <Button onClick={() => history.push(`${core.config.prefix}/projects/${newProjectId}`)}>Open project</Button>;
 
             // Clear new project forms
             if (nameFormRef.current) nameFormRef.current.resetFields();

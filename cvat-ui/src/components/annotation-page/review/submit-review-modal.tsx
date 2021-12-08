@@ -20,6 +20,7 @@ import { switchSubmitReviewDialog } from 'actions/annotation-actions';
 import { submitReviewAsync } from 'actions/review-actions';
 import { clamp } from 'utils/math';
 import { useHistory } from 'react-router';
+import getCore from 'cvat-core-wrapper';
 
 function computeEstimatedQuality(reviewedStates: number, openedIssues: number): number {
     if (reviewedStates === 0 && openedIssues === 0) {
@@ -48,6 +49,8 @@ export default function SubmitReviewModal(): JSX.Element | null {
     const [reviewStatus, setReviewStatus] = useState<string>(ReviewStatus.ACCEPTED);
     const [estimatedQuality, setEstimatedQuality] = useState<number>(0);
 
+    const core = getCore();
+
     const close = (): AnyAction => dispatch(switchSubmitReviewDialog(false));
     const submitReview = (): void => {
         activeReview.estimatedQuality = estimatedQuality;
@@ -67,7 +70,7 @@ export default function SubmitReviewModal(): JSX.Element | null {
         } else if (isSubmitting && reviewIsBeingSubmitted === null) {
             setIsSubmitting(false);
             close();
-            history.push(`/tasks/${job.task.id}`);
+            history.push(`${core.config.prefix}/tasks/${job.task.id}`);
         }
     }, [reviewIsBeingSubmitted, activeReview]);
 

@@ -14,6 +14,8 @@ import FooterDrawer from 'components/login-page/intel-footer-drawer';
 
 import LoginForm, { LoginData } from './login-form';
 
+import getCore from 'cvat-core-wrapper';
+
 interface LoginPageComponentProps {
     fetching: boolean;
     renderResetPassword: boolean;
@@ -33,6 +35,8 @@ function LoginPageComponent(props: LoginPageComponentProps & RouteComponentProps
 
     const { fetching, onLogin, renderResetPassword } = props;
 
+    const core = getCore();
+
     return (
         <Layout>
             <Content>
@@ -49,7 +53,7 @@ function LoginPageComponent(props: LoginPageComponentProps & RouteComponentProps
                             <Col>
                                 <Text strong>
                                     New to CVAT? Create
-                                    <Link to='/annotation/auth/register'> an account</Link>
+                                    <Link to={`${core.config.prefix}/auth/register`}> an account</Link>
                                 </Text>
                             </Col>
                         </Row>
@@ -57,7 +61,7 @@ function LoginPageComponent(props: LoginPageComponentProps & RouteComponentProps
                             <Row justify='start' align='top'>
                                 <Col>
                                     <Text strong>
-                                        <Link to='/annotation/auth/password/reset'>Forgot your password?</Link>
+                                        <Link to={`${core.config.prefix}/auth/password/reset`}>Forgot your password?</Link>
                                     </Text>
                                 </Col>
                             </Row>

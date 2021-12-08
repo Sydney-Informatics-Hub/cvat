@@ -42,6 +42,8 @@ import isAbleToChangeFrame from 'utils/is-able-to-change-frame';
 import GlobalHotKeys, { KeyMap } from 'utils/mousetrap-react';
 import { switchToolsBlockerState } from 'actions/settings-actions';
 
+import getCore from 'cvat-core-wrapper';
+
 interface StateToProps {
     jobInstance: any;
     frameNumber: number;
@@ -212,6 +214,7 @@ class AnnotationTopBarContainer extends React.PureComponent<Props, State> {
 
         // eslint-disable-next-line @typescript-eslint/no-this-alias
         const self = this;
+        const core = getCore();
         this.unblock = history.block((location: any) => {
             const { forceExit } = self.props;
             const { task, id: jobID } = jobInstance;
@@ -219,7 +222,7 @@ class AnnotationTopBarContainer extends React.PureComponent<Props, State> {
 
             if (
                 jobInstance.annotations.hasUnsavedChanges() &&
-                location.pathname !== `/tasks/${taskID}/jobs/${jobID}` &&
+                location.pathname !== `${core.config.prefix}/tasks/${taskID}/jobs/${jobID}` &&
                 !forceExit
             ) {
                 return 'You have unsaved changes, please confirm leaving this page.';

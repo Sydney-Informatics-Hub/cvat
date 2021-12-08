@@ -20,6 +20,7 @@ import {
     removeAnnotationsAsync as removeAnnotationsAsyncAction,
 } from 'actions/annotation-actions';
 import { exportActions } from 'actions/export-actions';
+import getCore from 'cvat-core-wrapper';
 
 interface StateToProps {
     annotationFormats: any;
@@ -117,6 +118,8 @@ function AnnotationMenuContainer(props: Props): JSX.Element {
         updateJob,
     } = props;
 
+    const core = getCore();
+
     const onUploadAnnotations = (format: string, file: File): void => {
         const [loader] = loaders.filter((_loader: any): boolean => _loader.name === format);
         if (loader && file) {
@@ -135,13 +138,13 @@ function AnnotationMenuContainer(props: Props): JSX.Element {
         } else if (action === Actions.RENEW_JOB) {
             jobInstance.status = TaskStatus.ANNOTATION;
             updateJob(jobInstance);
-            history.push(`/tasks/${jobInstance.task.id}`);
+            history.push(`${core.config.prefix}/tasks/${jobInstance.task.id}`);
         } else if (action === Actions.FINISH_JOB) {
             jobInstance.status = TaskStatus.COMPLETED;
             updateJob(jobInstance);
-            history.push(`/tasks/${jobInstance.task.id}`);
+            history.push(`${core.config.prefix}/tasks/${jobInstance.task.id}`);
         } else if (action === Actions.OPEN_TASK) {
-            history.push(`/tasks/${jobInstance.task.id}`);
+            history.push(`${core.config.prefix}/tasks/${jobInstance.task.id}`);
         }
     };
 

@@ -22,6 +22,8 @@ import ProjectSearchField from './project-search-field';
 import ProjectSubsetField from './project-subset-field';
 import AdvancedConfigurationForm, { AdvancedConfiguration } from './advanced-configuration-form';
 
+import getCore from 'cvat-core-wrapper';
+
 export interface CreateTaskData {
     projectId: number | null;
     basic: BaseConfiguration;
@@ -88,9 +90,10 @@ class CreateTaskContent extends React.PureComponent<Props & RouteComponentProps,
 
     public componentDidUpdate(prevProps: Props): void {
         const { status, history, taskId } = this.props;
+        const core = getCore();
 
         if (status === 'CREATED' && prevProps.status !== 'CREATED') {
-            const btn = <Button onClick={() => history.push(`/tasks/${taskId}`)}>Open task</Button>;
+            const btn = <Button onClick={() => history.push(`${core.config.prefix}/tasks/${taskId}`)}>Open task</Button>;
 
             notification.info({
                 message: 'The task has been created',

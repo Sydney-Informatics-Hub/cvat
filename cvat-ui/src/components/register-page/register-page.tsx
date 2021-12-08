@@ -15,6 +15,8 @@ import { UserAgreement } from 'reducers/interfaces';
 import FooterDrawer from 'components/login-page/intel-footer-drawer';
 import RegisterForm, { RegisterData, UserConfirmation } from './register-form';
 
+import getCore from 'cvat-core-wrapper';
+
 interface RegisterPageComponentProps {
     fetching: boolean;
     userAgreements: UserAgreement[];
@@ -40,6 +42,7 @@ function RegisterPageComponent(props: RegisterPageComponentProps & RouteComponen
 
     const { fetching, userAgreements, onRegister } = props;
     const { Content } = Layout;
+    const core = getCore();
 
     return (
         <Layout>
@@ -66,7 +69,7 @@ function RegisterPageComponent(props: RegisterPageComponentProps & RouteComponen
                             <Col>
                                 <Text strong>
                                     Already have an account?
-                                    <Link to='/annotation/auth/login'> Login </Link>
+                                    <Link to={`${core.config.prefix}/auth/login`}> Login </Link>
                                 </Text>
                             </Col>
                         </Row>

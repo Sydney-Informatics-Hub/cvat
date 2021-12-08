@@ -14,6 +14,8 @@ import { Project } from 'reducers/interfaces';
 import ActionsMenu from 'components/projects-page/actions-menu';
 import { MenuIcon } from 'icons';
 
+import getCore from 'cvat-core-wrapper';
+
 interface DetailsComponentProps {
     projectInstance: Project;
 }
@@ -23,10 +25,12 @@ export default function ProjectTopBar(props: DetailsComponentProps): JSX.Element
 
     const history = useHistory();
 
+    const core = getCore();
+
     return (
         <Row className='cvat-task-top-bar' justify='space-between' align='middle'>
             <Col>
-                <Button onClick={() => history.push('/annotation/projects')} type='link' size='large'>
+                <Button onClick={() => history.push(`${core.config.prefix}/projects`)} type='link' size='large'>
                     <LeftOutlined />
                     Back to projects
                 </Button>

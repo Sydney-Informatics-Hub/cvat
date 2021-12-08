@@ -13,6 +13,8 @@ import Upload from 'antd/lib/upload';
 import SearchField from 'components/search-field/search-field';
 import { TasksQuery } from 'reducers/interfaces';
 
+import getCore from 'cvat-core-wrapper';
+
 interface VisibleTopBarProps {
     onSearch: (query: TasksQuery) => void;
     onFileUpload(file: File): void;
@@ -26,6 +28,7 @@ export default function TopBarComponent(props: VisibleTopBarProps): JSX.Element 
     } = props;
 
     const history = useHistory();
+    const core = getCore();
 
     return (
         <Row className='cvat-tasks-page-top-bar' justify='center' align='middle'>
@@ -65,7 +68,7 @@ export default function TopBarComponent(props: VisibleTopBarProps): JSX.Element 
                                     size='large'
                                     id='cvat-create-task-button'
                                     type='primary'
-                                    onClick={(): void => history.push('/annotation/tasks/create')}
+                                    onClick={(): void => history.push(`${core.config.prefix}/tasks/create`)}
                                     icon={<PlusOutlined />}
                                 >
                                     Create new task

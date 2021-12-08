@@ -15,6 +15,8 @@ import { CombinedState } from 'reducers/interfaces';
 import FooterDrawer from 'components/login-page/intel-footer-drawer';
 import ResetPasswordForm, { ResetPasswordData } from './reset-password-form';
 
+import getCore from 'cvat-core-wrapper';
+
 interface StateToProps {
     fetching: boolean;
 }
@@ -49,6 +51,7 @@ function ResetPasswordPagePageComponent(props: ResetPasswordPageComponentProps):
 
     const { fetching, onResetPassword } = props;
     const { Content } = Layout;
+    const core = getCore();
 
     return (
         <Layout>
@@ -66,7 +69,7 @@ function ResetPasswordPagePageComponent(props: ResetPasswordPageComponentProps):
                             <Col>
                                 <Text strong>
                                     Go to
-                                    <Link to='/annotation/auth/login'> login page </Link>
+                                    <Link to={`${core.config.prefix}/auth/login`}> login page </Link>
                                 </Text>
                             </Col>
                         </Row>

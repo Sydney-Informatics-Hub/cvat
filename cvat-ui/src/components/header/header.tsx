@@ -152,6 +152,7 @@ function HeaderContainer(props: Props): JSX.Element {
     } = consts;
 
     const history = useHistory();
+    const core = getCore();
 
     function showAboutModal(): void {
         Modal.info({
@@ -263,10 +264,10 @@ function HeaderContainer(props: Props): JSX.Element {
                     className='cvat-header-button'
                     type='link'
                     value='projects'
-                    href='/annotation/projects'
+                    href={`${core.config.prefix}/projects`}
                     onClick={(event: React.MouseEvent): void => {
                         event.preventDefault();
-                        history.push('/annotation/projects');
+                        history.push(`${core.config.prefix}/projects`);
                     }}
                 >
                     Projects
@@ -275,10 +276,10 @@ function HeaderContainer(props: Props): JSX.Element {
                     className='cvat-header-button'
                     type='link'
                     value='tasks'
-                    href='/annotation/tasks?page=1'
+                    href={`${core.config.prefix}/tasks?page=1`}
                     onClick={(event: React.MouseEvent): void => {
                         event.preventDefault();
-                        history.push('/annotation/tasks?page=1');
+                        history.push(`${core.config.prefix}/tasks?page=1`);
                     }}
                 >
                     Tasks
@@ -287,10 +288,10 @@ function HeaderContainer(props: Props): JSX.Element {
                     className='cvat-header-button'
                     type='link'
                     value='cloudstorages'
-                    href='/annotation/cloudstorages?page=1'
+                    href={`${core.config.prefix}/cloudstorages?page=1`}
                     onClick={(event: React.MouseEvent): void => {
                         event.preventDefault();
-                        history.push('/annotation/cloudstorages?page=1');
+                        history.push(`${core.config.prefix}/cloudstorages?page=1`);
                     }}
                 >
                     Cloud Storages
@@ -300,10 +301,10 @@ function HeaderContainer(props: Props): JSX.Element {
                         className='cvat-header-button'
                         type='link'
                         value='models'
-                        href='/annotation/models'
+                        href={`${core.config.prefix}/models`}
                         onClick={(event: React.MouseEvent): void => {
                             event.preventDefault();
-                            history.push('/annotation/models');
+                            history.push(`${core.config.prefix}/models`);
                         }}
                     >
                         Models

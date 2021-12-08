@@ -9,6 +9,7 @@ import { Row, Col } from 'antd/lib/grid';
 import Text from 'antd/lib/typography/Text';
 import { CloudTwoTone } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
+import getCore from 'cvat-core-wrapper';
 
 interface Props {
     notFound: boolean;
@@ -16,6 +17,7 @@ interface Props {
 
 export default function EmptyStoragesListComponent(props: Props): JSX.Element {
     const { notFound } = props;
+    const core = getCore();
 
     const description = notFound ? (
         <Row justify='center' align='middle'>
@@ -37,7 +39,7 @@ export default function EmptyStoragesListComponent(props: Props): JSX.Element {
             </Row>
             <Row justify='center' align='middle'>
                 <Col>
-                    <Link to='/annotation/cloudstorages/create'>attach a new one</Link>
+                    <Link to={`${core.config.prefix}/cloudstorages/create`}>attach a new one</Link>
                 </Col>
             </Row>
         </>
