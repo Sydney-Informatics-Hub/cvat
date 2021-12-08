@@ -263,10 +263,10 @@ function HeaderContainer(props: Props): JSX.Element {
                     className='cvat-header-button'
                     type='link'
                     value='projects'
-                    href='/projects'
+                    href='/annotation/projects'
                     onClick={(event: React.MouseEvent): void => {
                         event.preventDefault();
-                        history.push('/projects');
+                        history.push('/annotation/projects');
                     }}
                 >
                     Projects
@@ -275,10 +275,10 @@ function HeaderContainer(props: Props): JSX.Element {
                     className='cvat-header-button'
                     type='link'
                     value='tasks'
-                    href='/tasks?page=1'
+                    href='/annotation/tasks?page=1'
                     onClick={(event: React.MouseEvent): void => {
                         event.preventDefault();
-                        history.push('/tasks?page=1');
+                        history.push('/annotation/tasks?page=1');
                     }}
                 >
                     Tasks
@@ -287,10 +287,10 @@ function HeaderContainer(props: Props): JSX.Element {
                     className='cvat-header-button'
                     type='link'
                     value='cloudstorages'
-                    href='/cloudstorages?page=1'
+                    href='/annotation/cloudstorages?page=1'
                     onClick={(event: React.MouseEvent): void => {
                         event.preventDefault();
-                        history.push('/cloudstorages?page=1');
+                        history.push('/annotation/cloudstorages?page=1');
                     }}
                 >
                     Cloud Storages
@@ -300,10 +300,10 @@ function HeaderContainer(props: Props): JSX.Element {
                         className='cvat-header-button'
                         type='link'
                         value='models'
-                        href='/models'
+                        href='/annotation/models'
                         onClick={(event: React.MouseEvent): void => {
                             event.preventDefault();
-                            history.push('/models');
+                            history.push('/annotation/models');
                         }}
                     >
                         Models

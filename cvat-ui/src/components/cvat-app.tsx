@@ -332,30 +332,30 @@ class CVATApplication extends React.PureComponent<CVATAppProps & RouteComponentP
                                 <ShortcutsDialog />
                                 <GlobalHotKeys keyMap={subKeyMap} handlers={handlers}>
                                     <Switch>
-                                        <Route exact path='/projects' component={ProjectsPageComponent} />
-                                        <Route exact path='/projects/create' component={CreateProjectPageComponent} />
-                                        <Route exact path='/projects/:id' component={ProjectPageComponent} />
-                                        <Route exact path='/tasks' component={TasksPageContainer} />
-                                        <Route exact path='/tasks/create' component={CreateTaskPageContainer} />
-                                        <Route exact path='/tasks/:id' component={TaskPageContainer} />
-                                        <Route exact path='/tasks/:tid/jobs/:jid' component={AnnotationPageContainer} />
-                                        <Route exact path='/cloudstorages' component={CloudStoragesPageComponent} />
+                                        <Route exact path='/annotation/projects' component={ProjectsPageComponent} />
+                                        <Route exact path='/annotation/projects/create' component={CreateProjectPageComponent} />
+                                        <Route exact path='/annotation/projects/:id' component={ProjectPageComponent} />
+                                        <Route exact path='/annotation/tasks' component={TasksPageContainer} />
+                                        <Route exact path='/annotation/tasks/create' component={CreateTaskPageContainer} />
+                                        <Route exact path='/annotation/tasks/:id' component={TaskPageContainer} />
+                                        <Route exact path='/annotation/tasks/:tid/jobs/:jid' component={AnnotationPageContainer} />
+                                        <Route exact path='/annotation/cloudstorages' component={CloudStoragesPageComponent} />
                                         <Route
                                             exact
-                                            path='/cloudstorages/create'
+                                            path='/annotation/cloudstorages/create'
                                             component={CreateCloudStoragePageComponent}
                                         />
                                         <Route
                                             exact
-                                            path='/cloudstorages/update/:id'
+                                            path='/annotation/cloudstorages/update/:id'
                                             component={UpdateCloudStoragePageComponent}
                                         />
                                         {isModelPluginActive && (
-                                            <Route exact path='/models' component={ModelsPageContainer} />
+                                            <Route exact path='/annotation/models' component={ModelsPageContainer} />
                                         )}
                                         <Redirect
                                             push
-                                            to={new URLSearchParams(location.search).get('next') || '/tasks'}
+                                            to={new URLSearchParams(location.search).get('next') || '/annotation/tasks'}
                                         />
                                     </Switch>
                                 </GlobalHotKeys>
@@ -372,24 +372,24 @@ class CVATApplication extends React.PureComponent<CVATAppProps & RouteComponentP
             return (
                 <GlobalErrorBoundary>
                     <Switch>
-                        <Route exact path='/auth/register' component={RegisterPageContainer} />
-                        <Route exact path='/auth/login' component={LoginPageContainer} />
+                        <Route exact path='/annotation/auth/register' component={RegisterPageContainer} />
+                        <Route exact path='/annotation/auth/login' component={LoginPageContainer} />
                         <Route
                             exact
-                            path='/auth/login-with-token/:sessionId/:token'
+                            path='/annotation/auth/login-with-token/:sessionId/:token'
                             component={LoginWithTokenComponent}
                         />
-                        <Route exact path='/auth/password/reset' component={ResetPasswordPageComponent} />
+                        <Route exact path='/annotation/auth/password/reset' component={ResetPasswordPageComponent} />
                         <Route
                             exact
-                            path='/auth/password/reset/confirm'
+                            path='/annotation/auth/password/reset/confirm'
                             component={ResetPasswordPageConfirmComponent}
                         />
 
-                        <Route exact path='/auth/email-confirmation' component={EmailConfirmationPage} />
+                        <Route exact path='/annotation/auth/email-confirmation' component={EmailConfirmationPage} />
 
                         <Redirect
-                            to={location.pathname.length > 1 ? `/auth/login/?next=${location.pathname}` : '/auth/login'}
+                            to={location.pathname.length > 1 ? `/annotation/auth/login/?next=${location.pathname}` : '/annotation/auth/login'}
                         />
                     </Switch>
                 </GlobalErrorBoundary>

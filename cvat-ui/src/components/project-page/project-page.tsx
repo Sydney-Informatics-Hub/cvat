@@ -77,13 +77,13 @@ export default function ProjectPageComponent(): JSX.Element {
             }
         }
         history.push({
-            pathname: `/projects/${id}`,
+            pathname: `/annotation/projects/${id}`,
             search: `?${searchParams.toString()}`,
         });
     }, [tasksGettingQuery, id]);
 
     if (deleteActivity) {
-        history.push('/projects');
+        history.push('/annotation/projects');
     }
 
     if (projectsFetching) {
@@ -129,7 +129,7 @@ export default function ProjectPageComponent(): JSX.Element {
                             type='primary'
                             icon={<PlusOutlined />}
                             id='cvat-create-task-button'
-                            onClick={() => history.push(`/tasks/create?projectId=${id}`)}
+                            onClick={() => history.push(`/annotation/tasks/create?projectId=${id}`)}
                         >
                             Create new task
                         </Button>

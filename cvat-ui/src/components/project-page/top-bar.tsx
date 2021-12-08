@@ -26,7 +26,7 @@ export default function ProjectTopBar(props: DetailsComponentProps): JSX.Element
     return (
         <Row className='cvat-task-top-bar' justify='space-between' align='middle'>
             <Col>
-                <Button onClick={() => history.push('/projects')} type='link' size='large'>
+                <Button onClick={() => history.push('/annotation/projects')} type='link' size='large'>
                     <LeftOutlined />
                     Back to projects
                 </Button>

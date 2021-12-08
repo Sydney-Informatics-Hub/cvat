@@ -66,7 +66,7 @@ function ResetPasswordPagePageComponent(props: ResetPasswordPageComponentProps):
                             <Col>
                                 <Text strong>
                                     Go to
-                                    <Link to='/auth/login'> login page </Link>
+                                    <Link to='/annotation/auth/login'> login page </Link>
                                 </Text>
                             </Col>
                         </Row>

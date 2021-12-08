@@ -5,12 +5,14 @@
 /// <reference types="cypress" />
 
 let authKey = '';
+const config = require('./config');
+const { backendAPI } = config;
 
 describe('Delete users and tasks created during the test run.', () => {
     it('Get token', () => {
         cy.request({
             method: 'POST',
-            url: '/api/v1/auth/login',
+            url: `${backendAPI}/api/v1/auth/login`,
             body: {
                 username: Cypress.env('user'),
                 email: Cypress.env('email'),
@@ -22,7 +24,7 @@ describe('Delete users and tasks created during the test run.', () => {
     });
     it('Get a list of users and delete all except id:1', () => {
         cy.request({
-            url: '/api/v1/users',
+            url: `${backendAPI}/api/v1/users`,
             headers: {
                 Authorization: `Token ${authKey}`,
             },
@@ -33,7 +35,7 @@ describe('Delete users and tasks created during the test run.', () => {
                 if (userId !== 1) {
                     cy.request({
                         method: 'DELETE',
-                        url: `/api/v1/users/${userId}`,
+                        url: `${backendAPI}/api/v1/users/${userId}`,
                         headers: {
                             Authorization: `Token ${authKey}`,
                         },
@@ -44,7 +46,7 @@ describe('Delete users and tasks created during the test run.', () => {
     });
     it('Get a list of tasks and delete them all', () => {
         cy.request({
-            url: '/api/v1/tasks?page_size=1000',
+            url: `${backendAPI}/api/v1/tasks?page_size=1000`,
             headers: {
                 Authorization: `Token ${authKey}`,
             },
@@ -54,7 +56,7 @@ describe('Delete users and tasks created during the test run.', () => {
                 let taskId = tasks['id'];
                 cy.request({
                     method: 'DELETE',
-                    url: `/api/v1/tasks/${taskId}`,
+                    url: `${backendAPI}/api/v1/tasks/${taskId}`,
                     headers: {
                         Authorization: `Token ${authKey}`,
                     },
@@ -64,7 +66,7 @@ describe('Delete users and tasks created during the test run.', () => {
     });
     it('Get a list of projects and delete them all', () => {
         cy.request({
-            url: '/api/v1/projects?page_size=all',
+            url: `${backendAPI}/api/v1/projects?page_size=all`,
             headers: {
                 Authorization: `Token ${authKey}`,
             },
@@ -74,7 +76,7 @@ describe('Delete users and tasks created during the test run.', () => {
                 let taskId = tasks['id'];
                 cy.request({
                     method: 'DELETE',
-                    url: `/api/v1/projects/${taskId}`,
+                    url: `${backendAPI}/api/v1/projects/${taskId}`,
                     headers: {
                         Authorization: `Token ${authKey}`,
                     },

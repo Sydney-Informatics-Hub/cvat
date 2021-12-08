@@ -42,7 +42,7 @@ export default function ProjectItemComponent(props: Props): JSX.Element {
     const deleted = instance.id in deletes ? deletes[instance.id] : false;
 
     const onOpenProject = (): void => {
-        history.push(`/projects/${instance.id}`);
+        history.push(`/annotation/projects/${instance.id}`);
     };
 
     const style: React.CSSProperties = { height };

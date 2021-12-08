@@ -43,7 +43,7 @@ export default function EmptyListComponent(props: Props): JSX.Element {
                     </Row>
                     <Row justify='center' align='middle'>
                         <Col>
-                            <Link to='/projects/create'>create a new one</Link>
+                            <Link to='/annotation/projects/create'>create a new one</Link>
                         </Col>
                     </Row>
                 </>

@@ -65,7 +65,7 @@ export default function TopBarComponent(props: VisibleTopBarProps): JSX.Element 
                                     size='large'
                                     id='cvat-create-task-button'
                                     type='primary'
-                                    onClick={(): void => history.push('/tasks/create')}
+                                    onClick={(): void => history.push('/annotation/tasks/create')}
                                     icon={<PlusOutlined />}
                                 >
                                     Create new task

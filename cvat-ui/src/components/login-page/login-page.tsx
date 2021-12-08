@@ -49,7 +49,7 @@ function LoginPageComponent(props: LoginPageComponentProps & RouteComponentProps
                             <Col>
                                 <Text strong>
                                     New to CVAT? Create
-                                    <Link to='/auth/register'> an account</Link>
+                                    <Link to='/annotation/auth/register'> an account</Link>
                                 </Text>
                             </Col>
                         </Row>
@@ -57,7 +57,7 @@ function LoginPageComponent(props: LoginPageComponentProps & RouteComponentProps
                             <Row justify='start' align='top'>
                                 <Col>
                                     <Text strong>
-                                        <Link to='/auth/password/reset'>Forgot your password?</Link>
+                                        <Link to='/annotation/auth/password/reset'>Forgot your password?</Link>
                                     </Text>
                                 </Col>
                             </Row>

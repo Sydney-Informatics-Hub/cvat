@@ -66,7 +66,7 @@ function RegisterPageComponent(props: RegisterPageComponentProps & RouteComponen
                             <Col>
                                 <Text strong>
                                     Already have an account?
-                                    <Link to='/auth/login'> Login </Link>
+                                    <Link to='/annotation/auth/login'> Login </Link>
                                 </Text>
                             </Col>
                         </Row>

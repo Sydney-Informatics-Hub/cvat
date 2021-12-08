@@ -41,7 +41,7 @@ export default function ProjectsPageComponent(): JSX.Element {
             }
         }
         history.push({
-            pathname: '/projects',
+            pathname: '/annotation/projects',
             search: `?${searchParams.toString()}`,
         });
     }, [gettingQuery]);

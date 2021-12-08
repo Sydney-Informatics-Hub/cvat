@@ -37,7 +37,7 @@ export default function EmptyStoragesListComponent(props: Props): JSX.Element {
             </Row>
             <Row justify='center' align='middle'>
                 <Col>
-                    <Link to='/cloudstorages/create'>attach a new one</Link>
+                    <Link to='/annotation/cloudstorages/create'>attach a new one</Link>
                 </Col>
             </Row>
         </>

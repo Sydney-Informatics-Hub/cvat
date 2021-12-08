@@ -28,7 +28,7 @@ function EmailConfirmationPage(): JSX.Element {
                     <Col>
                         <h1>Your email is confirmed</h1>
                         <Countdown format='ss' title='Redirecting to login page after...' value={Date.now() + 1000 * 6} onFinish={onFinish} />
-                        <Link to='/auth/login' ref={linkRef}>Or click this link</Link>
+                        <Link to='/annotation/auth/login' ref={linkRef}>Or click this link</Link>
                     </Col>
                 </Row>
             </Content>

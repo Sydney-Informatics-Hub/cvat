@@ -137,7 +137,7 @@ export default function CreateProjectContent(): JSX.Element {
 
     useEffect(() => {
         if (Number.isInteger(newProjectId) && shouldShowNotification.current) {
-            const btn = <Button onClick={() => history.push(`/projects/${newProjectId}`)}>Open project</Button>;
+            const btn = <Button onClick={() => history.push(`/annotation/projects/${newProjectId}`)}>Open project</Button>;
 
             // Clear new project forms
             if (nameFormRef.current) nameFormRef.current.resetFields();

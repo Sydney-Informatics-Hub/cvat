@@ -3,6 +3,6 @@
 // SPDX-License-Identifier: MIT
 
 module.exports = {
-    backendAPI: '/api/v1',
+    backendAPI: '/annotation/api/v1',
     proxy: false,
 };

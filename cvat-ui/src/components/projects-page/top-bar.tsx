@@ -41,7 +41,7 @@ export default function TopBarComponent(): JSX.Element {
                     id='cvat-create-project-button'
                     className='cvat-create-project-button'
                     type='primary'
-                    onClick={(): void => history.push('/projects/create')}
+                    onClick={(): void => history.push('/annotation/projects/create')}
                     icon={<PlusOutlined />}
                 >
                     Create new project
