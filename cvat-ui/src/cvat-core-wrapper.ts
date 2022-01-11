@@ -5,8 +5,10 @@
 import _cvat from 'cvat-core/src/api';
 
 const cvat: any = _cvat;
+const prefix: string = '/cvat-annotation';
 
-cvat.config.backendAPI = '/api/v1';
+cvat.config.prefix = prefix;
+cvat.config.backendAPI = `${prefix}/api/v1`;
 
 export default function getCore(): any {
     return cvat;
