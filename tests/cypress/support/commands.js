@@ -652,7 +652,7 @@ Cypress.Commands.add('sidebarItemSortBy', (sortBy) => {
 });
 
 Cypress.Commands.add('goToRegisterPage', () => {
-    cy.get('a[href="/auth/register"]').click();
+    cy.get(`a[href="${Cypress.env('basename')}/auth/register"]`).click();
     cy.url().should('include', '/auth/register');
 });
 
