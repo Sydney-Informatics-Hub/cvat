@@ -33,8 +33,8 @@ context('Changing a default value for an attribute.', () => {
 
     describe(`Testing case "${caseId}", issue 2968`, () => {
         it('Add a label, add text (leave it’s value empty by default) & checkbox attributes.', () => {
-            cy.intercept('PATCH', '/api/v1/tasks/**').as('patchTask');
-            cy.intercept('GET', '/api/v1/tasks**').as('getTask');
+            cy.intercept('PATCH', `${Cypress.env('basename')}/api/v1/tasks/**`).as('patchTask');
+            cy.intercept('GET', `${Cypress.env('basename')}/api/v1/tasks**`).as('getTask');
             cy.addNewLabel(additionalLabel, additionalAttrsLabel);
             cy.wait('@patchTask').its('response.statusCode').should('equal', 200);
             cy.wait('@getTask').its('response.statusCode').should('equal', 200);
@@ -42,7 +42,7 @@ context('Changing a default value for an attribute.', () => {
         });
 
         it('Open label editor. Change default values for text & checkbox attributes, press Done.', () => {
-            cy.intercept('PATCH', '/api/v1/tasks/**').as('patchTask');
+            cy.intercept('PATCH', `${Cypress.env('basename')}/api/v1/tasks/**`).as('patchTask');
             cy.get('.cvat-constructor-viewer').within(() => {
                 cy.contains(new RegExp(`^${additionalLabel}$`))
                     .parents('.cvat-constructor-viewer-item')
