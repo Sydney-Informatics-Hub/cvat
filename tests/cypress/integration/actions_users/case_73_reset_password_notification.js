@@ -14,7 +14,7 @@ context('Reset password notification.', () => {
 
     describe(`Testing case "${caseId}"`, () => {
         it('"Forgot password?" link available.', () => {
-            cy.get('a[href="/auth/password/reset"]').should('exist').and('be.visible').click();
+            cy.get(`a[href="${Cypress.env('basename')}/auth/password/reset"]`).should('exist').and('be.visible').click();
         });
 
         it('Sending a password reset request', () => {
