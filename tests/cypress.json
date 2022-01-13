@@ -1,6 +1,6 @@
 {
   "video": false,
-  "baseUrl": "http://localhost:8080/cvat-annotation",
+  "baseUrl": "http://localhost:8080",
   "viewportWidth": 1300,
   "viewportHeight": 960,
   "defaultCommandTimeout": 25000,
@@ -9,7 +9,7 @@
     "user": "admin",
     "email": "admin@localhost.company",
     "password": "12qwaszx",
-    "basename": "/cvat-annotation"
+    "basename": ""
   },
   "testFiles": [
     "auth_page.js",
