@@ -45,7 +45,7 @@ context('Multiple users. Assign task, job. Deactivating users.', () => {
     function changeCheckUserStatusOpenTask(userName) {
         cy.changeUserActiveStatus(authKey, userName, isActive);
         cy.checkUserStatuses(authKey, userName, isStaff, isSuperuser, isActive);
-        cy.intercept('GET', `/api/v1/users*${thirdUserName}*`).as('users');
+        cy.intercept('GET', `${Cypress.env('basename')}/api/v1/users*${thirdUserName}*`).as('users');
         cy.openTask(taskName);
         cy.wait('@users');
         cy.get('.cvat-global-boundary').should('not.exist');
@@ -96,7 +96,7 @@ context('Multiple users. Assign task, job. Deactivating users.', () => {
         });
 
         it('Register third user and logout.', () => {
-            cy.get('a[href="/auth/register"]').click();
+            cy.get(`a[href="${Cypress.env('basename')}/auth/register"]`).click();
             cy.url().should('include', '/auth/register');
             cy.userRegistration(
                 thirdUser.firstName,
@@ -161,7 +161,7 @@ context('Multiple users. Assign task, job. Deactivating users.', () => {
 
         it('First user login. Getting authKey.', () => {
             cy.visit('/');
-            cy.intercept('POST', '/api/v1/auth/login').as('login');
+            cy.intercept('POST', `${Cypress.env('basename')}/api/v1/auth/login`).as('login');
             cy.login();
             cy.wait('@login').then((response) => {
                 authKey = response['response']['body']['key'];

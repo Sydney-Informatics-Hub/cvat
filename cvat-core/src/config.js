@@ -3,6 +3,7 @@
 // SPDX-License-Identifier: MIT
 
 module.exports = {
+    basename: '',
     backendAPI: '/api/v1',
     proxy: false,
 };

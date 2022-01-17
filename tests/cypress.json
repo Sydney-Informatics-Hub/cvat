@@ -8,7 +8,8 @@
   "env": {
     "user": "admin",
     "email": "admin@localhost.company",
-    "password": "12qwaszx"
+    "password": "12qwaszx",
+    "basename": ""
   },
   "testFiles": [
     "auth_page.js",

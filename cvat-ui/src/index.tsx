@@ -23,9 +23,11 @@ import { KeyMap } from 'utils/mousetrap-react';
 import createRootReducer from 'reducers/root-reducer';
 import { resetErrors, resetMessages } from './actions/notification-actions';
 import { CombinedState, NotificationsState } from './reducers/interfaces';
+import getCore from 'cvat-core-wrapper';
 
 createCVATStore(createRootReducer);
 const cvatStore = getCVATStore();
+const core = getCore();
 
 interface StateToProps {
     pluginsInitialized: boolean;
@@ -117,7 +119,7 @@ const ReduxAppWrapper = connect(mapStateToProps, mapDispatchToProps)(CVATApplica
 
 ReactDOM.render(
     <Provider store={cvatStore}>
-        <BrowserRouter>
+        <BrowserRouter basename={`${core.config.basename}`}>
             <ReduxAppWrapper />
         </BrowserRouter>
         <LayoutGrid />

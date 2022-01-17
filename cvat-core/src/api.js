@@ -697,6 +697,9 @@ function build() {
              * @property {string} proxy Axios proxy settings.
              * For more details please read <a href="https://github.com/axios/axios"> here </a>
              * @memberof module:API.cvat.config
+             * @property {string} basename adding base url to incoming and outgoing request of the frontend
+             * Changes should be made in ./cvat-ui/src/config.js, ./.env and ./tests/cypress.json
+             * Will get e.g. <your host>/<customised base url>/auth/login
              * @memberof module:API.cvat.config
              */
             get backendAPI() {
@@ -710,6 +713,12 @@ function build() {
             },
             set proxy(value) {
                 config.proxy = value;
+            },
+            get basename() {
+                return config.basename;
+            },
+            set basename(value) {
+                config.basename = value;
             },
         },
         /**
