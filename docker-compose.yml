@@ -25,6 +25,19 @@ services:
     networks:
       - cvat
 
+  auth-db:
+    image: postgres:12.0-alpine
+    container_name: auth-db
+    volumes:
+      - postgres_data_auth:/var/lib/postgresql/data/
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: reactivesearch
+    networks:
+      - elastic
+    logging: *default-logging
+
   cvat:
     container_name: cvat
     build:
@@ -34,6 +47,7 @@ services:
     depends_on:
       - cvat_redis
       - cvat_db
+      - auth-db
     environment:
       DJANGO_MODWSGI_EXTRA_ARGS: ''
       ALLOWED_HOSTS: '*'
@@ -104,6 +118,7 @@ services:
 volumes:
   cvat_db:
   cvat_data:
+  postgres_data_auth:
   cvat_keys:
   cvat_logs:
 

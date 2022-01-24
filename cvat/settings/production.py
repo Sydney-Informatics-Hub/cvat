@@ -42,4 +42,4 @@ DATABASES = {
     },
 }
 
-DATABASE_ROUTERS = ['db_routers.auth_router.AuthRouter', 'db_routers.default_router.DefaultRouter']
+DATABASE_ROUTERS = ['cvat.db_routers.auth_router.AuthRouter', 'cvat.db_routers.default_router.DefaultRouter']
