@@ -22,7 +22,7 @@ module.exports = (env) => ({
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].[contenthash].min.js',
-        publicPath: '/',
+        publicPath: '/cvat-static/',
     },
     devServer: {
         contentBase: path.join(__dirname, 'dist'),
@@ -108,7 +108,7 @@ module.exports = (env) => ({
                 use: {
                     loader: 'worker-loader',
                     options: {
-                        publicPath: '/',
+                        publicPath: '/cvat-static/',
                         name: '3rdparty/[name].[contenthash].js',
                     },
                 },
@@ -119,7 +119,7 @@ module.exports = (env) => ({
                 use: {
                     loader: 'worker-loader',
                     options: {
-                        publicPath: '/',
+                        publicPath: '/cvat-static/',
                         name: '[name].[contenthash].js',
                     },
                 },
