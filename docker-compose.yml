@@ -65,7 +65,8 @@ services:
     labels:
       - traefik.enable=true
       - traefik.http.services.cvat-ui.loadbalancer.server.port=80
-      - traefik.http.routers.cvat-ui.rule=Host(`${CVAT_HOST:-localhost}`)
+      - traefik.http.routers.cvat-ui.rule=Host(`${CVAT_HOST:-localhost}`) &&
+          PathPrefix(`${BASENAME}`, `/cvat-static`)
       - traefik.http.routers.cvat-ui.entrypoints=web
       - traefik.http.routers.cvat-ui.middlewares=add-cvat-ui
       - traefik.http.middlewares.add-cvat-ui.stripprefix.prefixes=${BASENAME}
