@@ -225,7 +225,11 @@ WSGI_APPLICATION = 'cvat.wsgi.application'
 
 # Django Auth
 DJANGO_AUTH_TYPE = 'BASIC'
-DJANGO_AUTH_DEFAULT_GROUPS = []
+env_default_groups = os.get.env('DJANGO_AUTH_DEFAULT_GROUPS')
+if env_default_groups:
+    DJANGO_AUTH_DEFAULT_GROUPS = env_default_groups.split(',')
+else:
+    DJANGO_AUTH_DEFAULT_GROUPS = [ ]
 LOGIN_URL = 'rest_login'
 LOGIN_REDIRECT_URL = '/'
 
