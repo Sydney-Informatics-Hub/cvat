@@ -14,6 +14,7 @@ import SubmitAnnotationsModal from 'components/annotation-page/request-review-mo
 import ReviewAnnotationsWorkspace from 'components/annotation-page/review-workspace/review-workspace';
 import SubmitReviewModal from 'components/annotation-page/review/submit-review-modal';
 import StandardWorkspaceComponent from 'components/annotation-page/standard-workspace/standard-workspace';
+import WeedAIWorkspaceComponent from 'components/annotation-page/weed-ai-workspace/weed-ai-workspace';
 import StandardWorkspace3DComponent from 'components/annotation-page/standard3D-workspace/standard3D-workspace';
 import TagAnnotationWorkspace from 'components/annotation-page/tag-annotation-workspace/tag-annotation-workspace';
 import FiltersModalComponent from 'components/annotation-page/top-bar/filters-modal';
@@ -119,6 +120,11 @@ export default function AnnotationPageComponent(props: Props): JSX.Element {
             {workspace === Workspace.ATTRIBUTE_ANNOTATION && (
                 <Layout.Content className='cvat-annotation-layout-content'>
                     <AttributeAnnotationWorkspace />
+                </Layout.Content>
+            )}
+            {workspace === Workspace.WEED_AI_WORKSPACE && (
+                <Layout.Content className='cvat-annotation-layout-content'>
+                    <WeedAIWorkspaceComponent />
                 </Layout.Content>
             )}
             {workspace === Workspace.TAG_ANNOTATION && (

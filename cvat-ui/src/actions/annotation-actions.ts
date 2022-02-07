@@ -147,6 +147,7 @@ export enum AnnotationActionTypes {
     SPLIT_ANNOTATIONS_FAILED = 'SPLIT_ANNOTATIONS_FAILED',
     COLLAPSE_SIDEBAR = 'COLLAPSE_SIDEBAR',
     COLLAPSE_APPEARANCE = 'COLLAPSE_APPEARANCE',
+    COLLAPSE_USER_HELP = 'COLLAPSE_USER_HELP',
     COLLAPSE_OBJECT_ITEMS = 'COLLAPSE_OBJECT_ITEMS',
     ACTIVATE_OBJECT = 'ACTIVATE_OBJECT',
     REMOVE_OBJECT_SUCCESS = 'REMOVE_OBJECT_SUCCESS',
@@ -583,6 +584,13 @@ export function collapseSidebar(): AnyAction {
 export function collapseAppearance(): AnyAction {
     return {
         type: AnnotationActionTypes.COLLAPSE_APPEARANCE,
+        payload: {},
+    };
+}
+
+export function collapseUserHelp(): AnyAction {
+    return {
+        type: AnnotationActionTypes.COLLAPSE_USER_HELP,
         payload: {},
     };
 }
