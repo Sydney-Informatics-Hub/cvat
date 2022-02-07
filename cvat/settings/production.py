@@ -19,7 +19,7 @@ CACHEOPS_REDIS['host'] = os.getenv('CVAT_REDIS_HOST', 'cvat_redis')
 
 # Django-sendfile:
 # https://github.com/johnsensible/django-sendfile
-SENDFILE_BACKEND = 'sendfile.backends.xsendfile'
+SENDFILE_BACKEND = 'sendfile.backends.simple'
 
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
