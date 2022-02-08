@@ -5,8 +5,6 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-<<<<<<< HEAD
-=======
 ## \[2.0.0] - Unreleased
 ### Added
 - Add additional environment variables for Nuclio configuration (<https://github.com/openvinotoolkit/cvat/pull/3894>)
@@ -72,7 +70,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Security
 - Updated ELK to 6.8.23 which uses log4j 2.17.1 (<https://github.com/openvinotoolkit/cvat/pull/4206>)
 
->>>>>>> 2b50abba (Bump pip from 21.0.1 to 22.0.2, setuptools from 53.0.0 to 60.6.0, wheel from 0.36.2 to 0.37.1 (#4267))
 ## \[1.7.0] - 2021-11-15
 
 ### Added
