@@ -12,6 +12,7 @@ from django.conf import settings
 from django.db import transaction
 from rest_framework.parsers import JSONParser
 from rest_framework.renderers import JSONRenderer
+from django_sendfile import sendfile
 
 import cvat.apps.dataset_manager as dm
 from cvat.apps.engine import models
