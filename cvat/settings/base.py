@@ -112,8 +112,7 @@ INSTALLED_APPS = [
     'cvat.apps.opencv',
     'django_rq',
     'compressor',
-    'cacheops',
-    'sendfile',
+    'django_sendfile',
     'dj_pagination',
     'revproxy',
     'rules',
@@ -486,3 +485,6 @@ CACHES = {
 
 USE_CACHE = True
 
+# Django-sendfile requires to set SENDFILE_ROOT
+# https://github.com/moggers87/django-sendfile2
+SENDFILE_ROOT = BASE_DIR
