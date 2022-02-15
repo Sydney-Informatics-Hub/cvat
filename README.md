@@ -54,22 +54,22 @@ For more information about supported formats look at the
 
 | Annotation format                                                                                         | Import | Export |
 | --------------------------------------------------------------------------------------------------------- | ------ | ------ |
-| [CVAT for images](https://openvinotoolkit.github.io/cvat/docs/manual/advanced/xml_format/#annotation)     | X      | X      |
-| [CVAT for a video](https://openvinotoolkit.github.io/cvat/docs/manual/advanced/xml_format/#interpolation) | X      | X      |
-| [Datumaro](https://github.com/openvinotoolkit/datumaro)                                                   |        | X      |
-| [PASCAL VOC](http://host.robots.ox.ac.uk/pascal/VOC/)                                                     | X      | X      |
-| Segmentation masks from [PASCAL VOC](http://host.robots.ox.ac.uk/pascal/VOC/)                             | X      | X      |
-| [YOLO](https://pjreddie.com/darknet/yolo/)                                                                | X      | X      |
-| [MS COCO Object Detection](http://cocodataset.org/#format-data)                                           | X      | X      |
-| [TFrecord](https://www.tensorflow.org/tutorials/load_data/tfrecord)                                       | X      | X      |
-| [MOT](https://motchallenge.net/)                                                                          | X      | X      |
-| [LabelMe 3.0](http://labelme.csail.mit.edu/Release3.0)                                                    | X      | X      |
-| [ImageNet](http://www.image-net.org)                                                                      | X      | X      |
-| [CamVid](http://mi.eng.cam.ac.uk/research/projects/VideoRec/CamVid/)                                      | X      | X      |
-| [WIDER Face](http://shuoyang1213.me/WIDERFACE/)                                                           | X      | X      |
-| [VGGFace2](https://github.com/ox-vgg/vgg_face2)                                                           | X      | X      |
-| [Market-1501](https://www.aitribune.com/dataset/2018051063)                                               | X      | X      |
-| [ICDAR13/15](https://rrc.cvc.uab.es/?ch=2)                                                                | X      | X      |
+| [CVAT for images](https://openvinotoolkit.github.io/cvat/docs/manual/advanced/xml_format/#annotation)     | :heavy_check_mark:      | :heavy_check_mark:      |
+| [CVAT for a video](https://openvinotoolkit.github.io/cvat/docs/manual/advanced/xml_format/#interpolation) | :heavy_check_mark:      | :heavy_check_mark:      |
+| [Datumaro](https://github.com/openvinotoolkit/datumaro)                                                   |        | :heavy_check_mark:      |
+| [PASCAL VOC](http://host.robots.ox.ac.uk/pascal/VOC/)                                                     | :heavy_check_mark:      | :heavy_check_mark:      |
+| Segmentation masks from [PASCAL VOC](http://host.robots.ox.ac.uk/pascal/VOC/)                             | :heavy_check_mark:      | :heavy_check_mark:      |
+| [YOLO](https://pjreddie.com/darknet/yolo/)                                                                | :heavy_check_mark:      | :heavy_check_mark:      |
+| [MS COCO Object Detection](http://cocodataset.org/#format-data)                                           | :heavy_check_mark:      | :heavy_check_mark:      |
+| [TFrecord](https://www.tensorflow.org/tutorials/load_data/tfrecord)                                       | :heavy_check_mark:      | :heavy_check_mark:      |
+| [MOT](https://motchallenge.net/)                                                                          | :heavy_check_mark:      | :heavy_check_mark:      |
+| [LabelMe 3.0](http://labelme.csail.mit.edu/Release3.0)                                                    | :heavy_check_mark:      | :heavy_check_mark:      |
+| [ImageNet](http://www.image-net.org)                                                                      | :heavy_check_mark:      | :heavy_check_mark:      |
+| [CamVid](http://mi.eng.cam.ac.uk/research/projects/VideoRec/CamVid/)                                      | :heavy_check_mark:      | :heavy_check_mark:      |
+| [WIDER Face](http://shuoyang1213.me/WIDERFACE/)                                                           | :heavy_check_mark:      | :heavy_check_mark:      |
+| [VGGFace2](https://github.com/ox-vgg/vgg_face2)                                                           | :heavy_check_mark:      | :heavy_check_mark:      |
+| [Market-1501](https://www.aitribune.com/dataset/2018051063)                                               | :heavy_check_mark:      | :heavy_check_mark:      |
+| [ICDAR13/15](https://rrc.cvc.uab.es/?ch=2)                                                                | :heavy_check_mark:      | :heavy_check_mark:      |
 
 <!--lint enable maximum-line-length-->
 
@@ -79,20 +79,20 @@ For more information about supported formats look at the
 
 | Name                                                                                                    | Type       | Framework  | CPU | GPU |
 | ------------------------------------------------------------------------------------------------------- | ---------- | ---------- | --- | --- |
-| [Deep Extreme Cut](/serverless/openvino/dextr/nuclio)                                                   | interactor | OpenVINO   | X   |     |
-| [Faster RCNN](/serverless/openvino/omz/public/faster_rcnn_inception_v2_coco/nuclio)                     | detector   | OpenVINO   | X   |     |
-| [Mask RCNN](/serverless/openvino/omz/public/mask_rcnn_inception_resnet_v2_atrous_coco/nuclio)           | detector   | OpenVINO   | X   |     |
-| [YOLO v3](/serverless/openvino/omz/public/yolo-v3-tf/nuclio)                                            | detector   | OpenVINO   | X   |     |
-| [Object reidentification](/serverless/openvino/omz/intel/person-reidentification-retail-300/nuclio)     | reid       | OpenVINO   | X   |     |
-| [Semantic segmentation for ADAS](/serverless/openvino/omz/intel/semantic-segmentation-adas-0001/nuclio) | detector   | OpenVINO   | X   |     |
-| [Text detection v4](/serverless/openvino/omz/intel/text-detection-0004/nuclio)                          | detector   | OpenVINO   | X   |     |
-| [SiamMask](/serverless/pytorch/foolwood/siammask/nuclio)                                                | tracker    | PyTorch    | X   | X   |
-| [f-BRS](/serverless/pytorch/saic-vul/fbrs/nuclio)                                                       | interactor | PyTorch    | X   |     |
-| [HRNet](/serverless/pytorch/saic-vul/hrnet/nuclio)                                                      | interactor | PyTorch    |     | X   |
-| [Inside-Outside Guidance](/serverless/pytorch/shiyinzhang/iog/nuclio)                                   | interactor | PyTorch    | X   |     |
-| [Faster RCNN](/serverless/tensorflow/faster_rcnn_inception_v2_coco/nuclio)                              | detector   | TensorFlow | X   | X   |
-| [Mask RCNN](/serverless/tensorflow/matterport/mask_rcnn/nuclio)                                         | detector   | TensorFlow | X   | X   |
-| [RetinaNet](serverless/pytorch/facebookresearch/detectron2/retinanet/nuclio)                            | detector   | PyTorch    | X   | X   |
+| [Deep Extreme Cut](/serverless/openvino/dextr/nuclio)                                                   | interactor | OpenVINO   | :heavy_check_mark:   |     |
+| [Faster RCNN](/serverless/openvino/omz/public/faster_rcnn_inception_v2_coco/nuclio)                     | detector   | OpenVINO   | :heavy_check_mark:   |     |
+| [Mask RCNN](/serverless/openvino/omz/public/mask_rcnn_inception_resnet_v2_atrous_coco/nuclio)           | detector   | OpenVINO   | :heavy_check_mark:   |     |
+| [YOLO v3](/serverless/openvino/omz/public/yolo-v3-tf/nuclio)                                            | detector   | OpenVINO   | :heavy_check_mark:   |     |
+| [Object reidentification](/serverless/openvino/omz/intel/person-reidentification-retail-300/nuclio)     | reid       | OpenVINO   | :heavy_check_mark:   |     |
+| [Semantic segmentation for ADAS](/serverless/openvino/omz/intel/semantic-segmentation-adas-0001/nuclio) | detector   | OpenVINO   | :heavy_check_mark:   |     |
+| [Text detection v4](/serverless/openvino/omz/intel/text-detection-0004/nuclio)                          | detector   | OpenVINO   | :heavy_check_mark:   |     |
+| [SiamMask](/serverless/pytorch/foolwood/siammask/nuclio)                                                | tracker    | PyTorch    | :heavy_check_mark:   | :heavy_check_mark:   |
+| [f-BRS](/serverless/pytorch/saic-vul/fbrs/nuclio)                                                       | interactor | PyTorch    | :heavy_check_mark:   |     |
+| [HRNet](/serverless/pytorch/saic-vul/hrnet/nuclio)                                                      | interactor | PyTorch    |     | :heavy_check_mark:   |
+| [Inside-Outside Guidance](/serverless/pytorch/shiyinzhang/iog/nuclio)                                   | interactor | PyTorch    | :heavy_check_mark:   |     |
+| [Faster RCNN](/serverless/tensorflow/faster_rcnn_inception_v2_coco/nuclio)                              | detector   | TensorFlow | :heavy_check_mark:   | :heavy_check_mark:   |
+| [Mask RCNN](/serverless/tensorflow/matterport/mask_rcnn/nuclio)                                         | detector   | TensorFlow | :heavy_check_mark:   | :heavy_check_mark:   |
+| [RetinaNet](serverless/pytorch/facebookresearch/detectron2/retinanet/nuclio)                            | detector   | PyTorch    | :heavy_check_mark:   | :heavy_check_mark:   |
 
 <!--lint enable maximum-line-length-->
 
