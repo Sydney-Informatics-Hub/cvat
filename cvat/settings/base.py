@@ -112,8 +112,7 @@ INSTALLED_APPS = [
     'cvat.apps.opencv',
     'django_rq',
     'compressor',
-    'cacheops',
-    'sendfile',
+    'django_sendfile',
     'dj_pagination',
     'revproxy',
     'rules',
@@ -225,7 +224,11 @@ WSGI_APPLICATION = 'cvat.wsgi.application'
 
 # Django Auth
 DJANGO_AUTH_TYPE = 'BASIC'
-DJANGO_AUTH_DEFAULT_GROUPS = []
+env_default_groups = os.getenv('DJANGO_AUTH_DEFAULT_GROUPS')
+if env_default_groups:
+    DJANGO_AUTH_DEFAULT_GROUPS = env_default_groups.split(',')
+else:
+    DJANGO_AUTH_DEFAULT_GROUPS = [ ]
 LOGIN_URL = 'rest_login'
 LOGIN_REDIRECT_URL = '/'
 
@@ -482,3 +485,6 @@ CACHES = {
 
 USE_CACHE = True
 
+# Django-sendfile requires to set SENDFILE_ROOT
+# https://github.com/moggers87/django-sendfile2
+SENDFILE_ROOT = BASE_DIR

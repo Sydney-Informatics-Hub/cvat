@@ -199,7 +199,7 @@ Cypress.Commands.add('openTask', (taskName, projectSubsetFieldValue) => {
 });
 
 Cypress.Commands.add('saveJob', (method = 'PATCH', status = 200, as = 'saveJob') => {
-    cy.intercept(method, '/api/v1/jobs/**').as(as);
+    cy.intercept(method, `${Cypress.env('basename')}/api/v1/jobs/**`).as(as);
     cy.get('button').contains('Save').click({ force: true });
     cy.wait(`@${as}`).its('response.statusCode').should('equal', status);
 });
@@ -654,7 +654,7 @@ Cypress.Commands.add('sidebarItemSortBy', (sortBy) => {
 });
 
 Cypress.Commands.add('goToRegisterPage', () => {
-    cy.get('a[href="/auth/register"]').click();
+    cy.get(`a[href="${Cypress.env('basename')}/auth/register"]`).click();
     cy.url().should('include', '/auth/register');
 });
 

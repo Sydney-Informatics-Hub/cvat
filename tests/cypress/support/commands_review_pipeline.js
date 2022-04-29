@@ -149,8 +149,8 @@ Cypress.Commands.add('createIssueFromControlButton', (createIssueParams) => {
 
 Cypress.Commands.add('resolveReopenIssue', (issueLabel, resolveText, reopen) => {
     cy.get(issueLabel).click();
-    cy.intercept('POST', '/api/v1/comments').as('postComment');
-    cy.intercept('PATCH', '/api/v1/issues/**').as('resolveReopenIssue');
+    cy.intercept('POST', `${Cypress.env('basename')}/api/v1/comments`).as('postComment');
+    cy.intercept('PATCH', `${Cypress.env('basename')}/api/v1/issues/**`).as('resolveReopenIssue');
     cy.get('.cvat-issue-dialog-input').type(resolveText);
     cy.get('.cvat-issue-dialog-footer').within(() => {
         cy.contains('button', 'Comment').click();
@@ -165,7 +165,7 @@ Cypress.Commands.add('submitReview', (decision, user) => {
     cy.get('.cvat-submit-review-dialog').within(() => {
         cy.contains(new RegExp(`^${decision}$`, 'g')).click();
         if (decision === 'Review next') {
-            cy.intercept('GET', `/api/v1/users?search=${user}&limit=10&is_active=true`).as('searchUsers');
+            cy.intercept('GET', `${Cypress.env('basename')}/api/v1/users?search=${user}&limit=10&is_active=true`).as('searchUsers');
             cy.get('.cvat-user-search-field').within(() => {
                 cy.get('input[type="search"]').clear().type(`${user}`);
                 cy.wait('@searchUsers').its('response.statusCode').should('equal', 200);
